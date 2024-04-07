@@ -21,24 +21,21 @@ source "azure-arm" "custom-honey-image" {
   managed_image_resource_group_name = "tcchoneypotsrg"
   os_type                           = "Linux"
   vm_size                           = "Standard_DS2_v2"
-  subscription_id = ""
-  tenant_id       = ""
-  client_id       = ""
-  client_secret   = ""
+
 }
 
 build {
   sources = ["source.azure-arm.custom-honey-image"]
 
   provisioner "shell" {
-    inline          = [
+    inline = [
       "apt-get update",
       "apt-get -y curl",
       "snap install docker",
       "sudo groupadd docker",
       "sudo usermod -aG docker useradmin",
       "/usr/sbin/waagent -force -deprovision+user && export HISTSIZE=0 && sync",
-      ]
-    inline_shebang  = "/bin/sh -x"
+    ]
+    inline_shebang = "/bin/sh -x"
   }
 }
