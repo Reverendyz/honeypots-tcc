@@ -45,11 +45,11 @@ provider "azurerm" {
   features {}
 }
 
-terraform {
-  backend "azurerm" {
-    container_name = "tfstate"
-    storage_account_name = "tcchoneypotssa"
-    key = "base.infra.tfstate"
-    resource_group_name = "tcchoneypotsrg"
-  }
-}
+# terraform {
+#   backend "azurerm" {
+#     container_name = "tfstate"
+#     storage_account_name = "tcchoneypotssa"
+#     key = "base.infra.tfstate"
+#     resource_group_name = "tcchoneypotsrg"
+#   }
+# }
