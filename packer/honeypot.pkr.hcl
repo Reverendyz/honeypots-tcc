@@ -21,10 +21,10 @@ source "azure-arm" "debian-honey-image" {
   build_resource_group_name         = "tcchoneypotsrg"
   os_type                           = "Linux"
   vm_size                           = "Standard_DS2_v2"
-  client_id                         = "c05b77e7-3f6e-47d7-9f66-a35e1a909485"
-  client_secret                     = "VEQ8Q~_IQwcmdH4LXTqkMza~.baQoSBi5lNbEbaO"
-  tenant_id                         = "8a1ef6c3-8324-4103-bf4a-1328c5dc3653"
-  subscription_id                   = "d2dacdf5-ba75-4a92-9880-16a05d154257"
+  client_id                         = ""
+  client_secret                     = ""
+  tenant_id                         = ""
+  subscription_id                   = ""
 }
 
 build {
@@ -33,11 +33,12 @@ build {
   provisioner "shell" {
     inline = [
       "sudo apt-get update",
-      "sudo apt-get install -y curl",
+      "sudo apt-get install -y curl git",
       "sudo snap install docker",
       "sudo groupadd docker",
       "sudo usermod -aG docker $USER",
       "sudo /usr/sbin/waagent -force -deprovision+user && export HISTSIZE=0 && sync",
+      "git clone https://github.com/telekom-security/tpotce.git /home/adminuser/tpotce"
     ]
     inline_shebang = "/bin/sh -x"
   }

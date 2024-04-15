@@ -33,7 +33,7 @@ resource "azurerm_linux_virtual_machine" "example" {
   os_disk {
     caching              = "ReadWrite"
     storage_account_type = "Standard_LRS"
-    disk_size_gb         = 200
+    disk_size_gb         = 300
     name                 = "test-disk"
   }
 
