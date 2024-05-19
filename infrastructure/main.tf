@@ -1,6 +1,6 @@
 locals {
   name         = "honeypots"
-  subscription = "d2dacdf5-ba75-4a92-9880-16a05d154257"
+# subscription = "0978-a9s89d87-98978"
   tags = {
     environment      = "dev"
     project          = "tcc"
